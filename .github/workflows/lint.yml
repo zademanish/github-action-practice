@@ -4,7 +4,7 @@ on:
   push:
     paths: "*.py"
 jobs:
-  code:
+  code-linting:
     runs-on: ubuntu-latest
     steps:
       - name: checkout/clone the code
@@ -12,5 +12,8 @@ jobs:
 
       - name: install the linter
         run: pip install ruff
+
+      - name: check the files for linting
+        run: ruff check .
 
     
