@@ -7,9 +7,17 @@ jobs:
   code-linting:
     runs-on: ubuntu-latest
     steps:
+# This step will automatically clone the code of current branch into the runner
       - name: checkout/clone the code
         uses: actions/checkout@v7
 
+# this step will install the python
+      - name: set up pyton
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.14'
+          
+# This step will install the Linter
       - name: install the linter
         run: pip install ruff
 
